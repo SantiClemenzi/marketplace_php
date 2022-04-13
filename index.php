@@ -51,50 +51,58 @@
             <div id="login" class="block_aside">
                 <form action="#" method="POST">
                     <label for="email">Email</label>
-                    <input name="email" type="email" placeholder="nombre@correo.com" required/>
+                    <input name="email" type="email" placeholder="nombre@correo.com" required />
                     <label for="password">Contraseña</label>
-                    <input name="password" type="password"  required/>
-                    <input type="submit"/>
+                    <input name="password" type="password" required />
+                    <input type="submit" />
                 </form>
-                <a class="button" href="#">Mis pedidos</a>
-                <a class="button gestion" href="#">Gestionar pedidos</a>
-                <a class="button gestion" href="#">Gestionar Categorias</a>
+                <ul>
+                    <li>
+                        <a class="button" href="#">Mis pedidos</a>
+                    </li>
+                    <li>
+                        <a class="button gestion" href="#">Gestionar pedidos</a>
+                    </li>
+                    <li>
+                        <a class="button gestion" href="#">Gestionar Categorias</a>
+                    </li>
+                </ul>
             </div>
         </aside>
         <!-- contenido central -->
-        <div id="central" >
+        <div id="central">
             <div class="product">
-                <img src="assets/img/camiseta.png"/>
+                <img src="assets/img/camiseta.png" />
                 <h2>Remera Azul</h2>
                 <p>1300$</p>
                 <a href="#">Comprar</a>
             </div>
             <div class="product">
-                <img src="assets/img/camiseta.png"/>
+                <img src="assets/img/camiseta.png" />
                 <h2>Remera Azul</h2>
                 <p>1300$</p>
                 <a href="#">Comprar</a>
             </div>
             <div class="product">
-                <img src="assets/img/camiseta.png"/>
+                <img src="assets/img/camiseta.png" />
                 <h2>Remera Azul</h2>
                 <p>1300$</p>
                 <a href="#">Comprar</a>
             </div>
             <div class="product">
-                <img src="assets/img/camiseta.png"/>
+                <img src="assets/img/camiseta.png" />
                 <h2>Remera Azul</h2>
                 <p>1300$</p>
                 <a href="#">Comprar</a>
             </div>
             <div class="product">
-                <img src="assets/img/camiseta.png"/>
+                <img src="assets/img/camiseta.png" />
                 <h2>Remera Azul</h2>
                 <p>1300$</p>
                 <a href="#">Comprar</a>
             </div>
             <div class="product">
-                <img src="assets/img/camiseta.png"/>
+                <img src="assets/img/camiseta.png" />
                 <h2>Remera Azul</h2>
                 <p>1300$</p>
                 <a href="#">Comprar</a>
