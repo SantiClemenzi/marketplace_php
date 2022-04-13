@@ -56,9 +56,9 @@
                     <input name="password" type="password"  required/>
                     <input type="submit"/>
                 </form>
-                <a href="#">Mis pedidos</a>
-                <a href="#">Gestionar pedidos</a>
-                <a href="#">Gestionar Categorias</a>
+                <a class="button" href="#">Mis pedidos</a>
+                <a class="button gestion" href="#">Gestionar pedidos</a>
+                <a class="button gestion" href="#">Gestionar Categorias</a>
             </div>
         </aside>
         <!-- contenido central -->
