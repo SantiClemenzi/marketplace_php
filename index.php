@@ -71,41 +71,42 @@
         </aside>
         <!-- contenido central -->
         <div id="central">
+            <h1>Productos Destacados</h1>
             <div class="product">
                 <img src="assets/img/camiseta.png" />
                 <h2>Remera Azul</h2>
                 <p>1300$</p>
-                <a href="#">Comprar</a>
+                <a class="button" href="#">Comprar</a>
             </div>
             <div class="product">
                 <img src="assets/img/camiseta.png" />
                 <h2>Remera Azul</h2>
                 <p>1300$</p>
-                <a href="#">Comprar</a>
+                <a class="button" href="#">Comprar</a>
             </div>
             <div class="product">
                 <img src="assets/img/camiseta.png" />
                 <h2>Remera Azul</h2>
                 <p>1300$</p>
-                <a href="#">Comprar</a>
+                <a class="button" href="#">Comprar</a>
             </div>
             <div class="product">
                 <img src="assets/img/camiseta.png" />
                 <h2>Remera Azul</h2>
                 <p>1300$</p>
-                <a href="#">Comprar</a>
+                <a class="button" href="#">Comprar</a>
             </div>
             <div class="product">
                 <img src="assets/img/camiseta.png" />
                 <h2>Remera Azul</h2>
                 <p>1300$</p>
-                <a href="#">Comprar</a>
+                <a class="button" href="#">Comprar</a>
             </div>
             <div class="product">
                 <img src="assets/img/camiseta.png" />
                 <h2>Remera Azul</h2>
                 <p>1300$</p>
-                <a href="#">Comprar</a>
+                <a class="button" href="#">Comprar</a>
             </div>
         </div>
     </section>
