@@ -58,13 +58,13 @@
                 </form>
                 <ul>
                     <li>
-                        <a class="button" href="#">Mis pedidos</a>
+                        <a class="button-gestion" href="#">Mis pedidos</a>
                     </li>
                     <li>
-                        <a class="button gestion" href="#">Gestionar pedidos</a>
+                        <a class="button-gestion" href="#">Gestionar pedidos</a>
                     </li>
                     <li>
-                        <a class="button gestion" href="#">Gestionar Categorias</a>
+                        <a class="button-gestion" href="#">Gestionar Categorias</a>
                     </li>
                 </ul>
             </div>
