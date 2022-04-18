@@ -1,6 +1,7 @@
 <?php
 require_once 'autoload.php';
-
+require_once 'views/layout/header.php';
+require_once 'views/layout/sidebar.php';
 
 // comando para hacer funcionar los controladores
 // ?controller=categoriaControllers&action=index
@@ -25,5 +26,6 @@ if(class_exists($nombre_controlador)){
     echo '<h2>La pagina que buscas NO existe</h2>';
 }
 
+require_once 'views/layout/footer.php';
 ?>
 
