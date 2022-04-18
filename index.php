@@ -1,119 +1,34 @@
-<!DOCTYPE html>
-<html lang="es">
+<?php
+require_once 'autoload.php';
 
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="assets/css/styles.css">
-    <title>Marketplace</title>
-</head>
+$controlador = new  UserController();
 
-<body>
-    <!-- header -->
-    <header id="header">
-        <div id="icon">
-            <img src="assets/img/camiseta.png" alt="Camiseta logo" />
-            <a href="index.php">
-                <h1>
-                    Shirts market
-                </h1>
-            </a>
-        </div>
-    </header>
+$controladorNota = new NotaController();
 
-    <!-- menu -->
-    <nav id="menu">
-        <ul>
-            <li>
-                <a href="#">Inicio</a>
-            </li>
-            <li>
-                <a href="#">Categoria 1</a>
-            </li>
-            <li>
-                <a href="#">Categoria 2</a>
-            </li>
-            <li>
-                <a href="#">Categoria 3</a>
-            </li>
-            <li>
-                <a href="#">Categoria 4</a>
-            </li>
-            <li>
-                <a href="#">Categoria 5</a>
-            </li>
-        </ul>
-    </nav>
-    <section id="content">
-        <!-- barra lateral -->
-        <aside id="lateral">
-            <div id="login" class="block_aside">
-                <form action="#" method="POST">
-                    <label for="email">Email</label>
-                    <input name="email" type="email" placeholder="nombre@correo.com" required />
-                    <label for="password">Contraseña</label>
-                    <input name="password" type="password" required />
-                    <input type="submit" />
-                </form>
-                <ul>
-                    <li>
-                        <a class="button-gestion" href="#">Mis pedidos</a>
-                    </li>
-                    <li>
-                        <a class="button-gestion" href="#">Gestionar pedidos</a>
-                    </li>
-                    <li>
-                        <a class="button-gestion" href="#">Gestionar Categorias</a>
-                    </li>
-                </ul>
-            </div>
-        </aside>
-        <!-- contenido central -->
-        <div id="central">
-            <h1>Productos Destacados</h1>
-            <div class="product">
-                <img src="assets/img/camiseta.png" />
-                <h2>Remera Azul</h2>
-                <p>1300$</p>
-                <a class="button" href="#">Comprar</a>
-            </div>
-            <div class="product">
-                <img src="assets/img/camiseta.png" />
-                <h2>Remera Azul</h2>
-                <p>1300$</p>
-                <a class="button" href="#">Comprar</a>
-            </div>
-            <div class="product">
-                <img src="assets/img/camiseta.png" />
-                <h2>Remera Azul</h2>
-                <p>1300$</p>
-                <a class="button" href="#">Comprar</a>
-            </div>
-            <div class="product">
-                <img src="assets/img/camiseta.png" />
-                <h2>Remera Azul</h2>
-                <p>1300$</p>
-                <a class="button" href="#">Comprar</a>
-            </div>
-            <div class="product">
-                <img src="assets/img/camiseta.png" />
-                <h2>Remera Azul</h2>
-                <p>1300$</p>
-                <a class="button" href="#">Comprar</a>
-            </div>
-            <div class="product">
-                <img src="assets/img/camiseta.png" />
-                <h2>Remera Azul</h2>
-                <p>1300$</p>
-                <a class="button" href="#">Comprar</a>
-            </div>
-        </div>
-    </section>
-    <!-- pie de pagina -->
-    <footer id="footer">
-        <p>Desarrollado por Santiago Clemenzi &copy; <?= date('Y') ?></p>
-    </footer>
-</body>
+// var_dump($controladorNota->listar());
+?>
 
-</html>
+<h1>Bienvenido a practica MVC</h1>
+
+<!-- para utilizar esta funcion hay que poner ?action=showAll -->
+<?php
+
+if (isset($_GET['action']) && method_exists($controlador, $_GET['action'])) {
+    $action = $_GET['action'];
+    $controlador->$action();
+}else{
+    echo '<h2>No existen dichas props de USER</h2>';
+}
+?>
+<hr>
+
+<!-- para utilizar esta funcion hay que poner ?text=listar -->
+<?php
+if (isset($_GET['text']) && method_exists($controladorNota, $_GET['text'])) {
+    $action = $_GET['text'];
+    echo $controladorNota->$action();
+}else{
+    echo '<h2>No existen dichas props de NOTA</h2>';
+}
+
+?>
