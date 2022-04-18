@@ -1,34 +1,29 @@
 <?php
 require_once 'autoload.php';
 
-$controlador = new  UserController();
 
-$controladorNota = new NotaController();
+// comando para hacer funcionar los controladores
+// ?controller=categoriaControllers&action=index
 
-// var_dump($controladorNota->listar());
-?>
 
-<h1>Bienvenido a practica MVC</h1>
-
-<!-- para utilizar esta funcion hay que poner ?action=showAll -->
-<?php
-
-if (isset($_GET['action']) && method_exists($controlador, $_GET['action'])) {
-    $action = $_GET['action'];
-    $controlador->$action();
+if(isset($_GET['controller'])){
+    $nombre_controlador = $_GET['controller'];
 }else{
-    echo '<h2>No existen dichas props de USER</h2>';
+    echo 'La pagina que buscas NO existe';
+    exit();
 }
-?>
-<hr>
 
-<!-- para utilizar esta funcion hay que poner ?text=listar -->
-<?php
-if (isset($_GET['text']) && method_exists($controladorNota, $_GET['text'])) {
-    $action = $_GET['text'];
-    echo $controladorNota->$action();
+if(class_exists($nombre_controlador)){
+    $controlador = new $nombre_controlador();
+    if (isset($_GET['action']) && method_exists($controlador, $_GET['action'])) {
+        $action = $_GET['action'];
+        $controlador->$action();
+    }else{
+        echo '<h2>La pagina que buscas NO existe</h2>';
+    }
 }else{
-    echo '<h2>No existen dichas props de NOTA</h2>';
+    echo '<h2>La pagina que buscas NO existe</h2>';
 }
 
 ?>
+
