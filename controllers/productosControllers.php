@@ -1,6 +1,6 @@
 <?php
 class productosControllers{
     public function index(){
-        echo 'Controlador categoria funcion publica index()';
+        require_once 'views/producto/destacado.php';
     }
 }
