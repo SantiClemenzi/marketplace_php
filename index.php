@@ -3,14 +3,24 @@ require_once 'autoload.php';
 require_once 'views/layout/header.php';
 require_once 'views/layout/sidebar.php';
 
+require_once 'config/parameters.php';
+
+
+function showErrors(){
+    $error = new error404Controllers();
+    $error->index();
+}
+
 // comando para hacer funcionar los controladores
 // ?controller=categoriaControllers&action=index
 
 
 if(isset($_GET['controller'])){
     $nombre_controlador = $_GET['controller'];
+}elseif(!isset($_GET['controller'])){
+    $nombre_controlador = controller_default;
 }else{
-    echo 'La pagina que buscas NO existe';
+    showErrors();
     exit();
 }
 
@@ -19,13 +29,14 @@ if(class_exists($nombre_controlador)){
     if (isset($_GET['action']) && method_exists($controlador, $_GET['action'])) {
         $action = $_GET['action'];
         $controlador->$action();
+    }elseif(!isset($_GET['action'])){
+        $default = action_default;
+        $controlador->$default();
     }else{
-        echo '<h2>La pagina que buscas NO existe</h2>';
+        showErrors();
     }
 }else{
-    echo '<h2>La pagina que buscas NO existe</h2>';
+    showErrors();
 }
 
 require_once 'views/layout/footer.php';
-?>
-
