@@ -1,4 +1,6 @@
 <?php
+require_once('models/usuario.php');
+
 class usuarioControllers{
     public function index(){
         echo 'Controlador usuario funcion publica index()';
@@ -10,7 +12,21 @@ class usuarioControllers{
 
     public function save(){
         if(isset($_POST)){
-            var_dump($_POST);
+            $usuario = new usuario();
+            $usuario->setNombre($_POST['nombre']);
+            $usuario->setApellido($_POST['apellido']);
+            $usuario->setEmail($_POST['email']);
+            $usuario->setPassword($_POST['password']);
+
+            var_dump($usuario);
+
+            $save = $usuario->save();
+            if($save){
+                echo 'REGISTRO COMPLETADO';
+            }
+            else{
+                echo 'REGISTRO FALLIDO';
+            }
         }
     }
 }

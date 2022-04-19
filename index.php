@@ -2,14 +2,15 @@
 require_once 'autoload.php';
 require_once 'views/layout/header.php';
 require_once 'views/layout/sidebar.php';
-
+require_once 'config/db.php';
 require_once 'config/parameters.php';
 
-
+// mostramos mensaje Error
 function showErrors(){
     $error = new error404Controllers();
     $error->index();
 }
+// definimos la db
 
 // comando para hacer funcionar los controladores
 // ?controller=categoriaControllers&action=index
