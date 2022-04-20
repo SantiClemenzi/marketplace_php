@@ -10,4 +10,7 @@ class categoriaControllers
 
         require_once 'views/categoria/index.php';
     }
+    public function crear(){
+        require_once 'views/categoria/crear.php';
+    }
 }
