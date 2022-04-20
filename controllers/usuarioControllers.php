@@ -74,4 +74,15 @@ class usuarioControllers
         }
         header('Location: http://localhost/projects/master_PHP/marketplace');
     }
+
+    public function logout()
+    {
+        if (isset($_SESSION['identify'])) {
+            unset($_SESSION['identify']);
+        }
+        if (isset($_SESSION['admin'])) {
+            unset($_SESSION['admin']);
+        }
+        header('Location: http://localhost/projects/master_PHP/marketplace');
+    }
 }
