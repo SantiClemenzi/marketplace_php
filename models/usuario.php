@@ -28,7 +28,7 @@ class usuario
     }
     function setNombre($nombre)
     {
-        $this->nombre = $this->db->$nombre;
+        $this->nombre = $this->db->real_escape_string($nombre);
     }
     // metodos para el apellido
     function getApellido()
@@ -37,7 +37,7 @@ class usuario
     }
     function setApellido($apellido)
     {
-        $this->apellido = $this->db->$apellido;
+        $this->apellido = $this->db->real_escape_string($apellido);
     }
     // metodos para el email
     function getEmail()
@@ -46,25 +46,25 @@ class usuario
     }
     function setEmail($email)
     {
-        $this->email = $this->db->$email;
+        $this->email = $this->db->real_escape_string($email);
     }
     // metodos para el password
     function getPassword()
     {
-        return $this->password;
+        return password_hash($this->db->real_escape_string($this->password), PASSWORD_BCRYPT, ['cost' => 4]);
     }
     function setPassword($password)
     {
-        $this->password = password_hash($this->db->$password, PASSWORD_BCRYPT, ['cost' => 4]);
+        $this->password = $this->db->real_escape_string($password);
     }
     // metodos para el rol
     function getRol()
     {
         return $this->rol;
     }
-    function setRol()
+    function setRol($rol)
     {
-        $this->rol = 'user';
+        $this->rol = $rol;
     }
     // metodos para el imagen
     function getImagen()
@@ -73,12 +73,13 @@ class usuario
     }
     function setImagen($imagen)
     {
-        $this->imagen = $this->db->real_scape_string($imagen);
+        $this->imagen = $this->db->real_escape_string($imagen);
+        
     }
 
     public function save()
     {
-        $sql = "INSERT INTO usuarios VALUES (NULL,'{$this->getNombre}','{$this->getApellido}','{$this->getEmail}','{$this->getPassword}','{$this->getRol}','{$this->getImagen}')";
+        $sql = "INSERT INTO usuarios VALUES (NULL,'{$this->getNombre()}','{$this->getApellido()}','{$this->getEmail()}','{$this->getPassword()}','{$this->getRol()}','{$this->getImagen()}')";
         $save = $this->db->query($sql);
 
         $result = false;
