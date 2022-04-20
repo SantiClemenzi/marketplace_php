@@ -10,4 +10,11 @@ class utils
 
         return $name;
     }
+    public static function isAdmin(){
+        if(!isset($_SESSION['admin'])){
+            header('Location: http://localhost/projects/master_PHP/marketplace');
+        }else{
+            return true;
+        }
+    }
 }

@@ -1,6 +1,6 @@
 <h1>Gestionar Categorias</h1>
 
-<a class="button button-small" href="#">
+<a class="button button-small" href="http://localhost/projects/master_PHP/marketplace/categoriaControllers/crear">
     Crear categoria
 </a>
 <table>
