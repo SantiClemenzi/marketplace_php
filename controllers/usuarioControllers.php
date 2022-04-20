@@ -63,7 +63,7 @@ class usuarioControllers
             if ($identify && is_object($identify)) {
                 $_SESSION['identify'] = $identify;
 
-                if ($identify->role == 'admin') {
+                if ($identify->rol == 'admin') {
                     $_SESSION['admin'] = true;
                 }
             } else {
