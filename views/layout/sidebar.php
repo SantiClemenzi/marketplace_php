@@ -14,7 +14,7 @@
                <?php endif; ?>
                <ul>
                    <?php if (isset($_SESSION['admin'])) : ?>
-                       <li><a href="#">Gestionar categorias</a></li>
+                       <li><a href="http://localhost/projects/master_PHP/marketplace/categoriaControllers/index">Gestionar categorias</a></li>
                        <li><a href="#">Gestionar productos</a></li>
                        <li><a href="#">Gestionar pedidos</a></li>
                    <?php endif; ?>
