@@ -16,18 +16,30 @@ class usuarioControllers
     public function save()
     {
         if (isset($_POST)) {
-            $usuario1 = new usuario();
-            $usuario1->setNombre($_POST['nombre']);
-            $usuario1->setApellido($_POST['apellido']);
-            $usuario1->setEmail($_POST['email']);
-            $usuario1->setPassword($_POST['password']);
-            $usuario1->setRol('user');
+            // validacion
+            $nombre = isset($_POST['nombre']) ? $_POST['nombre'] : false;
+            $apellido = isset($_POST['apellido']) ? $_POST['apellido'] : false;
+            $email = isset($_POST['email']) ? $_POST['email'] : false;
+            $password = isset($_POST['password']) ? $_POST['password'] : false;
 
-            var_dump($usuario1);
+            // comprobamos la validacion de cada variable
+            if ($nombre && $apellido && $email && $password) {
+                $usuario1 = new usuario();
+                $usuario1->setNombre($nombre);
+                $usuario1->setApellido($apellido);
+                $usuario1->setEmail($email);
+                $usuario1->setPassword($password);
+                $usuario1->setRol('user');
 
-            $save = $usuario1->save();
-            if ($save) {
-                $_SESSION['register'] = 'completed';
+                // realizamos la query
+                $save = $usuario1->save();
+
+                // mostramos mensaje que corresponde
+                if ($save) {
+                    $_SESSION['register'] = 'completed';
+                } else {
+                    $_SESSION['register'] = 'failed';
+                }
             } else {
                 $_SESSION['register'] = 'failed';
             }

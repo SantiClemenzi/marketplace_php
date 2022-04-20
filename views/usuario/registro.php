@@ -1,8 +1,10 @@
-<?php if (isset($_SESSION['register']) && $_SESSION['register']) : ?>
-    <strong>Registro completado</strong>
+<?php if (isset($_SESSION['register']) && $_SESSION['register'] == 'completed') : ?>
+    <strong class="alert_green">Registro completado</strong>
 <?php elseif (isset($_SESSION['register']) && $_SESSION['register'] == 'failed') : ?>
-    <strong>Error al registrarse</strong>
+    <strong class="alert_red">Error al registrarse</strong>
 <?php endif; ?>
+
+<?php utils::deleteSession('register'); ?>
 
 <h1>Registrarse</h1>
 <form action='http://localhost/projects/master_PHP/marketplace/usuarioControllers/save' method="POST">
