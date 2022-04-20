@@ -55,7 +55,7 @@ class usuario
     }
     function setPassword($password)
     {
-        $this->password = $this->db->real_escape_string($password);
+        $this->password = $password;
     }
     // metodos para el rol
     function getRol()
@@ -74,9 +74,9 @@ class usuario
     function setImagen($imagen)
     {
         $this->imagen = $this->db->real_escape_string($imagen);
-        
     }
 
+    // creamos usuario
     public function save()
     {
         $sql = "INSERT INTO usuarios VALUES (NULL,'{$this->getNombre()}','{$this->getApellido()}','{$this->getEmail()}','{$this->getPassword()}','{$this->getRol()}','{$this->getImagen()}')";
@@ -88,5 +88,27 @@ class usuario
         }
 
         return $result;
+    }
+
+    // logueamos usuario
+    public function login()
+    {
+        $result = false;
+        $email = $this->email;
+        $password = $this->password;
+
+        // comprobamos si existe el usuario
+        $sql = "SELECT * FROM usuarios WHERE email = '$email';";
+        $login = $this->db->query($sql);
+
+        if ($login && $login->num_rows == 1) {
+            $usuario = $login->fetch_object();
+            // veridficamos el password
+            $verify = password_verify($password, $usuario->password);
+            if ($verify) {
+                $result = $usuario;
+            }
+            return $result;
+        }
     }
 }
