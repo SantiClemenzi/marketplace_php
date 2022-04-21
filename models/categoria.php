@@ -31,7 +31,7 @@ class categoria
         return $categorias;
     }
     public function save(){
-        $sql = "INSERT INTO usuarios VALUES (NULL,'{$this->getNombre()}'";
+        $sql = "INSERT INTO categorias VALUES (NULL,'{$this->getNombre()}')";
         $save = $this->db->query($sql);
 
         $result = false;
