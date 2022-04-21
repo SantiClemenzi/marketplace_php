@@ -23,26 +23,17 @@
     </header>
 
     <!-- menu -->
-    <?php
-    // $categorias = utils::showCategorias();
-    ?>
+    <?php $categorias = utils::showCategorias(); ?>
     <nav id="menu">
         <ul>
             <li>
                 <a href="#">Inicio</a>
             </li>
-            <?php
-            // while ($cat = $categorias->fetch_object()) :
-            ?>
-                <?php
-                // var_dump($cat)
-                ?>
+            <?php while ($cat = $categorias->fetch_object()) : ?>
                 <li>
-                    <a href="#">hola</a>
+                    <a href="#"><?= $cat->nombre ?></a>
                 </li>
-            <?php
-            // endwhile;
-            ?>
+            <?php endwhile; ?>
         </ul>
     </nav>
     <section id="content">

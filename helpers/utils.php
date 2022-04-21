@@ -22,11 +22,7 @@ class utils
 
         $categoria = new categoria();
         $categorias = $categoria->getAllCategorias();
-         var_dump(gettype($categorias));
-         while ($cat = $categorias->fetch_object()){
-             echo $cat->nombre;
-             echo '</br>';
-         }
+
         return $categorias;
     }
 }
