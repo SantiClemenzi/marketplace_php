@@ -14,4 +14,8 @@ class productosControllers{
         require_once('views/producto/gestion.php');
 
     }
+    public function crear(){
+        utils::isAdmin();
+        require_once 'views/producto/crear.php';
+    }
 }
