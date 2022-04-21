@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -22,26 +23,26 @@
     </header>
 
     <!-- menu -->
+    <?php
+    // $categorias = utils::showCategorias();
+    ?>
     <nav id="menu">
         <ul>
             <li>
                 <a href="#">Inicio</a>
             </li>
-            <li>
-                <a href="#">Categoria 1</a>
-            </li>
-            <li>
-                <a href="#">Categoria 2</a>
-            </li>
-            <li>
-                <a href="#">Categoria 3</a>
-            </li>
-            <li>
-                <a href="#">Categoria 4</a>
-            </li>
-            <li>
-                <a href="#">Categoria 5</a>
-            </li>
+            <?php
+            // while ($cat = $categorias->fetch_object()) :
+            ?>
+                <?php
+                // var_dump($cat)
+                ?>
+                <li>
+                    <a href="#">hola</a>
+                </li>
+            <?php
+            // endwhile;
+            ?>
         </ul>
     </nav>
     <section id="content">
