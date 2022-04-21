@@ -36,7 +36,7 @@ class categoria
 
         $result = false;
         if ($save) {
-            $result = true;
+            $result = true; 
         }
 
         return $result;
