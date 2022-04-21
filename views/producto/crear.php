@@ -8,10 +8,10 @@
         <textarea name="descripcion" rows="4" cols="4"></textarea>
 
         <label for="precio">Precio</label>
-        <input type="text" require />
+        <input type="text" name="precio" require />
 
         <label for="stock">Stock</label>
-        <input type="number" require />
+        <input type="number" name="stock" require />
 
         <label for="categoria">Categoria</label>
         <?php $categorias = utils::showCategorias(); ?>
@@ -24,7 +24,7 @@
         </select>
 
         <label for="imagen">Imagen</label>
-        <input type="file" require />
+        <input type="file" name="imagen" require />
 
         <input type="submit" value="Crear">
     </form>
