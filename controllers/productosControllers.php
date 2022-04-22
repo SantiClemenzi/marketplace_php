@@ -68,4 +68,14 @@ class productosControllers
 
         header('Location: http://localhost/projects/master_PHP/marketplace/productosControllers/gestion');
     }
+
+    public function editar()
+    {
+        var_dump($_GET['id']);
+    }
+
+    public function eliminar()
+    {
+        var_dump($_GET);
+    }
 }
