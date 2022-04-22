@@ -1,6 +1,6 @@
 <h1>Crear nuevos productos</h1>
 <div class="form_container">
-    <form action="http://localhost/projects/master_PHP/marketplace/productosControllers/save" method="POST">
+    <form action="http://localhost/projects/master_PHP/marketplace/productosControllers/save" method="POST" enctype="multipart/form-data">
         <label for="nombre">Nombre</label>
         <input type="text" name="nombre" require />
 
