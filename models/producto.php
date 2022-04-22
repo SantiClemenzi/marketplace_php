@@ -109,10 +109,22 @@ class producto
         $this->imagen = $imagen;
     }
 
-    public function getAll(){
+    public function getAll()
+    {
         $sql = "SELECT * FROM productos";
         $productos = $this->db->query($sql);
 
         return $productos;
+    }
+    public function save()
+    {
+        $sql = "INSERT INTO productos VALUES(NULL, {$this->getCategorias_id()}, '{$this->getNombre()}', '{$this->getDescripcion()}', {$this->getPrecio()}, {$this->getStock()}, null, CURDATE(), '{$this->getImagen()}');";
+        $save = $this->db->query($sql);
+
+        $result = false;
+        if ($save) {
+            $result = true;
+        }
+        return $result;
     }
 }
