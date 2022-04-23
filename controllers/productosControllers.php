@@ -71,11 +71,29 @@ class productosControllers
 
     public function editar()
     {
-        var_dump($_GET['id']);
+        var_dump($_GET);
+        echo 'id = ' . $_SESSION['id'];
     }
 
     public function eliminar()
     {
-        var_dump($_GET);
+        Utils::isAdmin();
+
+        if (isset($_SESSION['id'])) {
+            $id = $_SESSION['id'];
+            $producto = new producto();
+            $producto->setId($id);
+
+            $delete = $producto->delete();
+            if ($delete) {
+                $_SESSION['delete'] = 'complete';
+            } else {
+                $_SESSION['delete'] = 'failed';
+            }
+        } else {
+            $_SESSION['delete'] = 'failed';
+        }
+
+        header('Location: http://localhost/projects/master_PHP/marketplace/productosControllers/gestion');
     }
 }

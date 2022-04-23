@@ -32,8 +32,8 @@
             <td><?= $prod->precio; ?></td>
             <td><?= $prod->stock; ?></td>
             <td>
-                <a href="http://localhost/projects/master_PHP/marketplace/productosControllers/eliminar?id=<?= $prod->id ?>" class="button button-gestion button-red">Eliminar</a>
-                <a href="http://localhost/projects/master_PHP/marketplace/productosControllers/editar?id=<?= $prod->id ?>" class="button button-gestion">Editar</a>
+                <a href="http://localhost/projects/master_PHP/marketplace/productosControllers/eliminar" class="button button-gestion button-red">Eliminar</a>
+                <a href="http://localhost/projects/master_PHP/marketplace/productosControllers/editar" class="button button-gestion">Editar</a>
             </td>
         </tr>
     <?php endwhile; ?>
