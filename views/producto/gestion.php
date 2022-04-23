@@ -34,8 +34,6 @@
             <td>
                 <a href="http://localhost/projects/master_PHP/marketplace/productosControllers/eliminar" class="button button-gestion button-red">Eliminar</a>
                 <a href="http://localhost/projects/master_PHP/marketplace/productosControllers/editar" class="button button-gestion">Editar</a>
-                <!-- pasamos el id por session -->
-                <?php $_SESSION['id'] = $prod->id; ?>
             </td>
         </tr>
     <?php endwhile; ?>

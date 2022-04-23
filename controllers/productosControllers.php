@@ -55,7 +55,15 @@ class productosControllers
                 }
             }
 
-            $save = $producto->save();
+            // arregalr metodo get
+            if(isset($_GET['id'])){
+                $id = $_GET['id'];
+                $producto->setId($id);
+                
+                $save = $producto->edit();
+            }else{
+                $save = $producto->save();
+            }
 
             if ($save) {
                 $_SESSION['producto'] = "complete";
@@ -71,8 +79,20 @@ class productosControllers
 
     public function editar()
     {
-        var_dump($_GET);
-        echo 'id = ' . $_SESSION['id'];
+        Utils::isAdmin();
+        if (isset($_SESSION['id'])) {
+            $id = $_SESSION['id'];
+            $edit = true;
+
+            $producto = new producto();
+            $producto->setId($id);
+
+            $pro = $producto->getOne();
+
+            require_once 'views/producto/crear.php';
+        } else {
+            header('Location: http://localhost/projects/master_PHP/marketplace/productosControllers/gestion');
+        }
     }
 
     public function eliminar()
