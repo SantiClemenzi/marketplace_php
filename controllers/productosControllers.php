@@ -118,4 +118,16 @@ class productosControllers
 
         header('Location: http://localhost/projects/master_PHP/marketplace/productosControllers/gestion');
     }
+
+    public function ver(){
+        if(isset($_GET)){
+            $id = $_GET['id'];
+
+            $producto = new producto();
+            $producto->setId($id);
+
+            $product = $producto->getOne();
+        }
+        require_once 'views/producto/ver.php';
+    }
 }
