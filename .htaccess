@@ -8,5 +8,5 @@
     RewriteCond %{SCRIPT_FILENAME} !-f
 
 
-    RewriteRule ^([a-zA-Z]*)/([a-zA-Z]*)/?([a-zA-Z]+)? index.php?controller=$1&action=$2$id=$3
+    RewriteRule ^([a-zA-Z]*)/([a-zA-Z]*)/?([0-9]+)? index.php?controller=$1&action=$2$id=$3
 </IfModule>
