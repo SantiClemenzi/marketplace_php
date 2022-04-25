@@ -5,6 +5,9 @@ class productosControllers
 {
     public function index()
     {
+        $producto = new producto();
+        $productos = $producto->getRandom(6);
+
         require_once 'views/producto/destacado.php';
     }
     public function gestion()

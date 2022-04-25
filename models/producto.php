@@ -170,4 +170,10 @@ class producto
         }
         return $result;
     }
+    
+    // obtener productos
+    public function getRandom($limit){
+		$productos = $this->db->query("SELECT * FROM productos ORDER BY RAND() LIMIT $limit");
+		return $productos;
+	}
 }
