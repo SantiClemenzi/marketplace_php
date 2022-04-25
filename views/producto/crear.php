@@ -1,10 +1,9 @@
 <?php if (isset($edit) && isset($pro) && is_object($pro)) : ?>
-    <h1>Editar producto <?= $pro->nombre ?> <?= $_SESSION['id']; ?></h1>
+    <h1>Editar producto <?= $pro->nombre ?> <?= $_GET['id']; ?></h1>
     <?php $url_action = "http://localhost/projects/master_PHP/marketplace/productosControllers/save"?>
 
 <?php else : ?>
     <h1>Crear nuevo producto</h1>
-    <?= $_SESSION['id']; ?>
     <?php $url_action = "http://localhost/projects/master_PHP/marketplace/productosControllers/save"; ?>
 <?php endif; ?>
 

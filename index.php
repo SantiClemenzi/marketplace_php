@@ -35,7 +35,7 @@ if (class_exists($nombre_controlador)) {
         $controlador->$action();
     } elseif (isset($_GET['action']) && isset($_GET['id']) && method_exists($controlador, $_GET['action'])) {
         $action = $_GET['action'];
-        $id = (int)$_GET['id'];
+        $id = $_GET['id'];
         $controlador->$action($id);
     } elseif (!isset($_GET['action'])) {
         $default = action_default;

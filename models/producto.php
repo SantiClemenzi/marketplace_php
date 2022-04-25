@@ -130,6 +130,13 @@ class producto
         return $result;
     }
 
+    public function find($id){
+        $sql = "SELECT * FROM productos WHERE id = {$id}";
+        $producto = $this->db->query($sql);
+
+        return $producto->fetch_object();
+    }
+
     // eliminar producto
     public function delete()
     {

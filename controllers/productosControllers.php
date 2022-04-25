@@ -80,8 +80,8 @@ class productosControllers
     public function editar()
     {
         Utils::isAdmin();
-        if (isset($_SESSION['id'])) {
-            $id = $_SESSION['id'];
+        if (isset($_GET['id'])) {
+            $id = $_GET['id'];
             $edit = true;
 
             $producto = new producto();
@@ -95,16 +95,18 @@ class productosControllers
         }
     }
 
-    public function eliminar()
+    public function eliminar($id)
     {
         Utils::isAdmin();
+        $producto = new producto();
+        $producto_actual =  $producto->find($id);
 
-        if (isset($_SESSION['id'])) {
-            $id = $_SESSION['id'];
-            $producto = new producto();
+        if (isset($producto_actual)) {
+            
+            // $producto = new producto();
             $producto->setId($id);
-
             $delete = $producto->delete();
+
             if ($delete) {
                 $_SESSION['delete'] = 'complete';
             } else {
