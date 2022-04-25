@@ -14,6 +14,10 @@ class categoria
     {
         $this->nombre = $this->db->real_escape_string($nombre);
     }
+     function setId($id)
+    {
+        $this->id = $id;
+    }
 
      function getNombre()
     {
@@ -23,6 +27,11 @@ class categoria
      function getId()
     {
         return $this->id;
+    }
+
+    public function getOne(){
+        $categoria = $this->db->query("SELECT * FROM categorias WHERE id={$this->getId()}");
+		return $categoria->fetch_object();
     }
 
     public function getAllCategorias(){

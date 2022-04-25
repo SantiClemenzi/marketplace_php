@@ -31,7 +31,7 @@
             </li>
             <?php while ($cat = $categorias->fetch_object()) : ?>
                 <li>
-                    <a href="#"><?= $cat->nombre ?></a>
+                    <a href="http://localhost/projects/master_PHP/marketplace/categoriaControllers/ver/<?= $cat->id ?>"><?= $cat->nombre ?></a>
                 </li>
             <?php endwhile; ?>
         </ul>

@@ -1,5 +1,6 @@
 <?php
 require_once 'models/categoria.php';
+require_once 'models/producto.php';
 
 class categoriaControllers
 {
@@ -32,7 +33,21 @@ class categoriaControllers
         // redireccionamos
         header('Location: http://localhost/projects/master_PHP/marketplace/categoriaControllers/index');
     }
-    public function ver(){
-        
+    public function ver()
+    {
+
+        if (isset($_GET)) {
+            $categoria = new categoria();
+            $categoria->setId($_GET['id']);
+            $categoria = $categoria->getone();
+
+            // obtenemos los porducto por categoria
+            $producto = new producto();
+            $producto->setCategorias_id($_GET['id']);
+            $productos = $producto->getAllCategory();
+
+        }
+
+        require_once 'views/categoria/ver.php';
     }
 }

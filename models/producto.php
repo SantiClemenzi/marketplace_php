@@ -170,10 +170,22 @@ class producto
         }
         return $result;
     }
-    
+
     // obtener productos
-    public function getRandom($limit){
-		$productos = $this->db->query("SELECT * FROM productos ORDER BY RAND() LIMIT $limit");
-		return $productos;
-	}
+    public function getRandom($limit)
+    {
+        $productos = $this->db->query("SELECT * FROM productos ORDER BY RAND() LIMIT $limit");
+        return $productos;
+    }
+
+    // obtener productos por categoira
+    public function getAllCategory()
+    {
+        $sql = "SELECT p.*, c.nombre AS 'catnombre' FROM productos p "
+            . "INNER JOIN categorias c ON c.id = p.categorias_id "
+            . "WHERE p.categorias_id = {$this->getCategorias_id()} "
+            . "ORDER BY id DESC";
+        $productos = $this->db->query($sql);
+        return $productos;
+    }
 }
