@@ -56,11 +56,10 @@ class productosControllers
             }
 
             // arregalr metodo get
-            if(isset($_GET['id'])){
-                $id = $_GET['id'];
-                $producto->setId($id);
-                
+            if($_GET['id']){
+                $producto->setId($_GET['id']);
                 $save = $producto->edit();
+                
             }else{
                 $save = $producto->save();
             }
