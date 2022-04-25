@@ -1,6 +1,6 @@
 <?php if (isset($edit) && isset($pro) && is_object($pro)) : ?>
     <h1>Editar producto <?= $pro->nombre ?> <?= $_GET['id']; ?></h1>
-    <?php $url_action = "http://localhost/projects/master_PHP/marketplace/productosControllers/save"?>
+    <?php $url_action = "http://localhost/projects/master_PHP/marketplace/productosControllers/save/".$_GET['id'];?>
 
 <?php else : ?>
     <h1>Crear nuevo producto</h1>
@@ -36,7 +36,7 @@
         <?php if (isset($pro) && is_object($pro) && !empty($pro->imagen)) : ?>
             <img src="http://localhost/projects/master_PHP/marketplace/uploads/images/<?= $pro->imagen ?>" class="thumb" />
         <?php endif; ?>
-        <input type="file" name="imagen" require />
+        <input type="file" name="imagen"/>
 
         <input type="submit" value="Crear">
     </form>
