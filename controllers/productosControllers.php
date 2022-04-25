@@ -59,7 +59,7 @@ class productosControllers
             if($_GET['id']){
                 $producto->setId($_GET['id']);
                 $save = $producto->edit();
-                
+
             }else{
                 $save = $producto->save();
             }
@@ -94,16 +94,14 @@ class productosControllers
         }
     }
 
-    public function eliminar($id)
+    public function eliminar()
     {
         Utils::isAdmin();
-        $producto = new producto();
-        $producto_actual =  $producto->find($id);
 
-        if (isset($producto_actual)) {
+        if (isset($_GET['id'])) {
             
-            // $producto = new producto();
-            $producto->setId($id);
+            $producto = new producto();
+            $producto->setId($_GET['id']);
             $delete = $producto->delete();
 
             if ($delete) {
