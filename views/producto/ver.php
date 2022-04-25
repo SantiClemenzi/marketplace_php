@@ -3,9 +3,9 @@
 	<div id="detail-product">
 		<div class="image">
 			<?php if ($product->imagen != null): ?>
-				<img src="uploads/images/<?= $product->imagen ?>" />
+				<img src="http://localhost/projects/master_PHP/marketplace/uploads/images/<?= $product->imagen ?>" />
 			<?php else: ?>
-				<img src="assets/img/camiseta.png" />
+				<img src="http://localhost/projects/master_PHP/marketplace/assets/img/camiseta.png" />
 			<?php endif; ?>
 		</div>
 		<div class="data">
