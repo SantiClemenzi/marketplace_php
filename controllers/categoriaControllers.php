@@ -32,4 +32,7 @@ class categoriaControllers
         // redireccionamos
         header('Location: http://localhost/projects/master_PHP/marketplace/categoriaControllers/index');
     }
+    public function ver(){
+        
+    }
 }
