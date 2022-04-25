@@ -2,7 +2,11 @@
 <div>
     <?php while ($prod = $productos->fetch_object()) : ?>
         <div class="product">
-            <img src="assets/img/<?= $prod->imagen ?>" />
+            <?php if($prod->imagen != NULL):?>
+                <img src="uploads\images\<?= $prod->imagen ?>" />
+            <?php else: ?>
+                <img src="assets/img/camiseta.png" />
+            <?php endif; ?>
             <h2><?= $prod->nombre ?></h2>
             <p><?= $prod->precio ?></p>
             <a class="button" href="#">Comprar</a>
