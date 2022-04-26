@@ -11,7 +11,7 @@
 		<div class="data">
 			<p class="description"><?= $product->descripcion ?></p>
 			<p class="price"><?= $product->precio ?>$</p>
-			<a href="http://localhost/projects/master_PHP/marketplace/carritoControllers/add/<?= $product->id ?>" class="button">Comprar</a>
+			<a href="http://localhost/projects/master_PHP/marketplace/carritoControllers/add/<?= $product->id ?>" class="button">Agregar carrito</a>
 		</div>
 	</div>
 <?php else : ?>

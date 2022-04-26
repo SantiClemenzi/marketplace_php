@@ -13,12 +13,16 @@
         <tr>
             <td>
                 <?php if ($producto->imagen != NULL) : ?>
-                    <img src="http://localhost/projects/master_PHP/marketplace/uploads/images/<?= $producto->imagen ?>" class="img_carrito"/>
+                    <img src="http://localhost/projects/master_PHP/marketplace/uploads/images/<?= $producto->imagen ?>" class="img_carrito" />
                 <?php else : ?>
-                    <img src="http://localhost/projects/master_PHP/marketplace/assets/img/camiseta.png" class="img_carrito"/>
+                    <img src="http://localhost/projects/master_PHP/marketplace/assets/img/camiseta.png" class="img_carrito" />
                 <?php endif; ?>
             </td>
-            <td><?= $producto->nombre; ?></td>
+            <td>
+                <a href="http://localhost/projects/master_PHP/marketplace/productosControllers/ver/<?= $elemento['id_producto'] ?>">
+                    <?= $producto->nombre; ?>
+                </a>
+            </td>
             <td><?= $elemento['precio'] ?></td>
             <td><?= $elemento['unidades']; ?></td>
         </tr>
