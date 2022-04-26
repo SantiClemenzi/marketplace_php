@@ -10,19 +10,38 @@ class utils
 
         return $name;
     }
-    public static function isAdmin(){
-        if(!isset($_SESSION['admin'])){
+    public static function isAdmin()
+    {
+        if (!isset($_SESSION['admin'])) {
             header('Location: http://localhost/projects/master_PHP/marketplace');
-        }else{
+        } else {
             return true;
         }
     }
-    public static function showCategorias(){
+    public static function showCategorias()
+    {
         require_once 'models\categoria.php';
 
         $categoria = new categoria();
         $categorias = $categoria->getAllCategorias();
 
         return $categorias;
+    }
+    public static function stateCarrito()
+    {
+        $stats = array(
+            'count' => 0,
+            'total' => 0
+        );
+
+        if (isset($_SESSION['carrito'])) {
+            $stats['count'] = count($_SESSION['carrito']);
+
+            foreach ($_SESSION['carrito'] as $producto) {
+                $stats['total'] += $producto['precio'] * $producto['unidades'];
+            }
+        }
+
+        return $stats;
     }
 }

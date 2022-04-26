@@ -26,6 +26,13 @@
                        <li><a href="http://localhost/projects/master_PHP/marketplace/usuarioControllers/registro">Registrate aqui</a></li>
                    <?php endif; ?>
                </ul>
+               <h3>Ver carrito</h3>
+               <ul>
+                   <?php $stats = utils::stateCarrito() ?>
+                   <li>Productos: (<?= $stats['count'] ?>) </li>
+                   <li>Total: <?= $stats['total'] ?></li>
+                   <li><a href="http://localhost/projects/master_PHP/marketplace/carritoControllers/index">Mi carrito</a></li>
+               </ul>
            </div>
        </aside>
        <!-- contenido central -->
