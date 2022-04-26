@@ -27,7 +27,7 @@
     <nav id="menu">
         <ul>
             <li>
-                <a href="#">Inicio</a>
+                <a href="http://localhost/projects/master_PHP/marketplace">Inicio</a>
             </li>
             <?php while ($cat = $categorias->fetch_object()) : ?>
                 <li>

@@ -29,5 +29,9 @@
     <?php endforeach; ?>
 </table>
 </br>
-<?php $stats = utils::stateCarrito() ?>
-<h3>Total: <?=$stats['total']?>$</h3>
+
+<div class="total-carrito">
+    <?php $stats = utils::stateCarrito() ?>
+    <h3>Total: <?= $stats['total'] ?>$</h3>
+    <a href="#" class="button button-pedido">Confirmar</a>
+</div>
