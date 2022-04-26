@@ -28,3 +28,6 @@
         </tr>
     <?php endforeach; ?>
 </table>
+</br>
+<?php $stats = utils::stateCarrito() ?>
+<h3>Total: <?=$stats['total']?>$</h3>

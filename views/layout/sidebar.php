@@ -30,7 +30,7 @@
                <ul>
                    <?php $stats = utils::stateCarrito() ?>
                    <li>Productos: (<?= $stats['count'] ?>) </li>
-                   <li>Total: <?= $stats['total'] ?></li>
+                   <li>Total: <?=$stats['total']?>$</li>
                    <li><a href="http://localhost/projects/master_PHP/marketplace/carritoControllers/index">Mi carrito</a></li>
                </ul>
            </div>
