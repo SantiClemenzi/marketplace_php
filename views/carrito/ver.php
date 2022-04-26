@@ -19,12 +19,12 @@
                 <?php endif; ?>
             </td>
             <td>
-                <a href="http://localhost/projects/master_PHP/marketplace/productosControllers/ver/<?= $elemento['id_producto'] ?>">
+                <a href="http://localhost/projects/master_PHP/marketplace/productosControllers/ver/<?= $producto->id ?>">
                     <?= $producto->nombre; ?>
                 </a>
             </td>
-            <td><?= $elemento['precio'] ?></td>
-            <td><?= $elemento['unidades']; ?></td>
+            <td><?= $producto->precio ?></td>
+            <td><?= $elemento['unidades'] ?></td>
         </tr>
     <?php endforeach; ?>
 </table>

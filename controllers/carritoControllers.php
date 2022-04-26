@@ -5,7 +5,7 @@ class carritoControllers
 {
     public function index()
     {
-        if (isset($_SESSION['carrito']) && count($_SESSION['carrito']) <= 1) {
+        if (isset($_SESSION['carrito']) && count($_SESSION['carrito']) >= 1) {
             $carrito = $_SESSION['carrito'];
         } else {
             $carrito = array();
