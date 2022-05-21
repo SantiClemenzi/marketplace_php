@@ -4,7 +4,7 @@ class pedidoControllers{
         require_once 'views/pedido/hacerPedido.php';
     }
     public function add(){
-        echo 'Controlador pedido funcion publica index()';
+        var_dump($_POST);
     }
 
 }
