@@ -2,14 +2,14 @@
 class pedido
 {
     private $id;
-    private $categorias_id;
-    private $nombre;
-    private $descripcion;
-    private $precio;
-    private $stock;
-    private $oferta;
+    private $usuarios_id;
+    private $provincia;
+    private $localidad;
+    private $direccion;
+    private $coste;
+    private $estado;
     private $fecha;
-    private $imagen;
+    private $hora;
 
     private $db;
 
@@ -24,34 +24,34 @@ class pedido
         return $this->id;
     }
 
-    function getCategorias_id()
+    function getUsuarios_id()
     {
-        return $this->categorias_id;
+        return $this->usuarios_id;
     }
 
-    function getNombre()
+    function getProvincia()
     {
-        return $this->nombre;
+        return $this->provincia;
     }
 
-    function getDescripcion()
+    function getLocalidad()
     {
-        return $this->descripcion;
+        return $this->localidad;
     }
 
-    function getPrecio()
+    function getDireccion()
     {
-        return $this->precio;
+        return $this->direccion;
     }
 
-    function getStock()
+    function getCoste()
     {
-        return $this->stock;
+        return $this->coste;
     }
 
-    function getOferta()
+    function getEstado()
     {
-        return $this->oferta;
+        return $this->estado;
     }
 
     function getFecha()
@@ -59,9 +59,9 @@ class pedido
         return $this->fecha;
     }
 
-    function getImagen()
+    function getHora()
     {
-        return $this->imagen;
+        return $this->hora;
     }
 
     function setId($id)
@@ -69,34 +69,34 @@ class pedido
         $this->id = $id;
     }
 
-    function setCategorias_id($categorias_id)
+    function setUsuarios_id($usuarios_id)
     {
-        $this->categorias_id = $categorias_id;
+        $this->usuarios_id = $usuarios_id;
     }
 
-    function setNombre($nombre)
+    function setProvincia($provincia)
     {
-        $this->nombre = $this->db->real_escape_string($nombre);
+        $this->provincia = $this->db->real_escape_string($provincia);
     }
 
-    function setDescripcion($descripcion)
+    function setLocalidad($localidad)
     {
-        $this->descripcion = $this->db->real_escape_string($descripcion);
+        $this->localidad = $this->db->real_escape_string($localidad);
     }
 
-    function setPrecio($precio)
+    function setDireccion($direccion)
     {
-        $this->precio = $this->db->real_escape_string($precio);
+        $this->direccion = $this->db->real_escape_string($direccion);
     }
 
-    function setStock($stock)
+    function setCoste($coste)
     {
-        $this->stock = $this->db->real_escape_string($stock);
+        $this->coste = $coste;
     }
 
-    function setOferta($oferta)
+    function setEstado($estado)
     {
-        $this->oferta = $this->db->real_escape_string($oferta);
+        $this->estado = $this->db->real_escape_string($estado);
     }
 
     function setFecha($fecha)
@@ -104,14 +104,14 @@ class pedido
         $this->fecha = $fecha;
     }
 
-    function setImagen($imagen)
+    function setHora($hora)
     {
-        $this->imagen = $imagen;
+        $this->hora = $hora;
     }
 
     public function getAll()
     {
-        $sql = "SELECT * FROM productos";
+        $sql = "SELECT * FROM pedidos";
         $productos = $this->db->query($sql);
 
         return $productos;
@@ -120,24 +120,11 @@ class pedido
     //guardar producto 
     public function save()
     {
-        $sql = "INSERT INTO productos VALUES(NULL, {$this->getCategorias_id()}, '{$this->getNombre()}', '{$this->getDescripcion()}', {$this->getPrecio()}, {$this->getStock()}, null, CURDATE(), '{$this->getImagen()}');";
+        $sql = "INSERT INTO pedidos VALUES(NULL, {$this->getUsuarios_id()}, '{$this->getProvincia()}', '{$this->getLocalidad()}', '{$this->getDireccion()}', {$this->getCoste()}, 'confirm', CURDATE(), CURTIME());";
         $save = $this->db->query($sql);
 
         $result = false;
         if ($save) {
-            $result = true;
-        }
-        return $result;
-    }
-
-    // eliminar producto
-    public function delete()
-    {
-        $sql = "DELETE FROM productos WHERE id={$this->id}";
-        $delete = $this->db->query($sql);
-
-        $result = false;
-        if ($delete) {
             $result = true;
         }
         return $result;
@@ -146,46 +133,8 @@ class pedido
     // editar producto
     public function getOne()
     {
-        $sql = "SELECT * FROM productos WHERE id = {$this->getId()}";
+        $sql = "SELECT * FROM pedidos WHERE id = {$this->getId()}";
         $producto = $this->db->query($sql);
         return $producto->fetch_object();
-    }
-
-    public function edit()
-    {
-        $sql = "UPDATE productos SET nombre='{$this->getNombre()}', descripcion='{$this->getDescripcion()}', precio={$this->getPrecio()}, stock={$this->getStock()}, categorias_id={$this->getCategorias_id()}  ";
-
-        if ($this->getImagen() != null) {
-            $sql .= ", imagen='{$this->getImagen()}'";
-        }
-
-        $sql .= " WHERE id={$this->id};";
-
-
-        $save = $this->db->query($sql);
-
-        $result = false;
-        if ($save) {
-            $result = true;
-        }
-        return $result;
-    }
-
-    // obtener productos
-    public function getRandom($limit)
-    {
-        $productos = $this->db->query("SELECT * FROM productos ORDER BY RAND() LIMIT $limit");
-        return $productos;
-    }
-
-    // obtener productos por categoira
-    public function getAllCategory()
-    {
-        $sql = "SELECT p.*, c.nombre AS 'catnombre' FROM productos p "
-            . "INNER JOIN categorias c ON c.id = p.categorias_id "
-            . "WHERE p.categorias_id = {$this->getCategorias_id()} "
-            . "ORDER BY id DESC";
-        $productos = $this->db->query($sql);
-        return $productos;
     }
 }
