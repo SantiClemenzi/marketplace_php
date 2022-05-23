@@ -38,12 +38,17 @@ class pedidoControllers
                     $_SESSION['pedido'] = 'failed';
                     echo $_SESSION['pedido'];
                 }
-                
+
                 $pedido->save_linea();
             }
         } else {
             // redirect to inicio
             header('Location: http://localhost/projects/master_PHP/marketplace/');
         }
+        header('Location: http://localhost/projects/master_PHP/marketplace/pedidoControllers/confirmado');
+    }
+    public function confirmado()
+    {
+        require_once 'views/pedido/confirmado.php';
     }
 }
