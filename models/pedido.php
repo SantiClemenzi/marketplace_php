@@ -158,11 +158,35 @@ class pedido
         }
         return $result;
     }
-    // editar pedido
-    public function getOne()
+    public function getOneByUser()
     {
-        $sql = "SELECT * FROM pedidos WHERE id = {$this->getId()}";
-        $producto = $this->db->query($sql);
-        return $producto->fetch_object();
+        $sql = "SELECT p.id, p.coste FROM pedidos p "
+            //. "INNER JOIN lineas_pedidos lp ON lp.pedido_id = p.id "
+            . "WHERE p.usuarios_id = {$this->getUsuarios_id()} ORDER BY id DESC LIMIT 1";
+
+        $pedido = $this->db->query($sql);
+
+        return $pedido->fetch_object();
     }
+    
+	public function getProductosByPedido($id)
+	{
+		//		$sql = "SELECT * FROM productos WHERE id IN "
+		//				. "(SELECT producto_id FROM lineas_pedidos WHERE pedido_id={$id})";
+
+		$sql = "SELECT pr.*, lp.unidades FROM productos pr "
+			. "INNER JOIN lineas_pedidos lp ON pr.id = lp.productos_id "
+			. "WHERE lp.pedidos_id={$id}";
+
+		$productos = $this->db->query($sql);
+
+		return $productos;
+	}
+    // editar pedido
+    // public function getOne()
+    // {
+    //     $sql = "SELECT * FROM pedidos WHERE id = {$this->getId()}";
+    //     $producto = $this->db->query($sql);
+    //     return $producto->fetch_object();
+    // }
 }
