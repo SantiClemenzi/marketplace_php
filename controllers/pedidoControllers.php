@@ -31,14 +31,15 @@ class pedidoControllers
                 $pedido->setCoste($coste);
 
                 $save = $pedido->save();
-                if($save){
+                if ($save) {
                     $_SESSION['pedido'] = 'complete';
                     echo $_SESSION['pedido'];
-                }
-                else{
+                } else {
                     $_SESSION['pedido'] = 'failed';
                     echo $_SESSION['pedido'];
                 }
+                
+                $pedido->save_linea();
             }
         } else {
             // redirect to inicio
