@@ -49,16 +49,28 @@ class pedidoControllers
     }
     public function confirmado()
     {
-        if(isset($_SESSION['identity'])){
-			$identity = $_SESSION['identity'];
-			$pedido = new Pedido();
-			$pedido->setUsuarios_id($identity->id);
-			
-			$pedido = $pedido->getOneByUser();
-			
-			$pedido_productos = new Pedido();
-			$productos = $pedido_productos->getProductosByPedido($pedido->id);
-		}
+        if (isset($_SESSION['identity'])) {
+            $identity = $_SESSION['identity'];
+            $pedido = new Pedido();
+            $pedido->setUsuarios_id($identity->id);
+
+            $pedido = $pedido->getOneByUser();
+
+            $pedido_productos = new Pedido();
+            $productos = $pedido_productos->getProductosByPedido($pedido->id);
+        }
         require_once 'views/pedido/confirmado.php';
+    }
+    public function misPedidos()
+    {
+        // utils::isIdentity();
+        $usuario_id = $_SESSION['identify']->id;
+        $pedido = new Pedido();
+
+        // Sacar los pedidos del usuario
+        $pedido->setUsuarios_id($usuario_id);
+        $pedidos = $pedido->getAllByUser();
+        // var_dump($pedido);
+        require_once 'views/pedido/misPedidos.php';
     }
 }

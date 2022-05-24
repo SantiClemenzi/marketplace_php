@@ -16,11 +16,11 @@
                    <?php if (isset($_SESSION['admin'])) : ?>
                        <li><a href="http://localhost/projects/master_PHP/marketplace/categoriaControllers/index">Gestionar categorias</a></li>
                        <li><a href="http://localhost/projects/master_PHP/marketplace/productosControllers/gestion">Gestionar productos</a></li>
-                       <li><a href="#">Gestionar pedidos</a></li>
+                       <li><a href="http://localhost/projects/master_PHP/marketplace/pedidoControllers/confirmado">Gestionar pedidos</a></li>
                    <?php endif; ?>
 
                    <?php if (isset($_SESSION['identify'])) : ?>
-                       <li><a href="#">Mis pedidos</a></li>
+                       <li><a href="http://localhost/projects/master_PHP/marketplace/pedidoControllers/misPedidos">Mis pedidos</a></li>
                        <li><a href="http://localhost/projects/master_PHP/marketplace/usuarioControllers/logout">Cerrar sesión</a></li>
                    <?php else : ?>
                        <li><a href="http://localhost/projects/master_PHP/marketplace/usuarioControllers/registro">Registrate aqui</a></li>
