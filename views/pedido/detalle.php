@@ -27,6 +27,7 @@
     Total a pagar: <?= $pedido->coste ?> $ <br />
     Productos:
 
+    <!-- nueva prueba -->
     <table>
         <tr>
             <th>Imagen</th>
@@ -34,7 +35,11 @@
             <th>Precio</th>
             <th>Unidades</th>
         </tr>
-        <?php while ($producto = $productos->fetch_object()) : ?>
+        <?php
+        foreach ($_SESSION['carrito'] as $indice => $elemento) :
+            $producto = $elemento['producto'];
+        ?>
+
             <tr>
                 <td>
                     <?php if ($producto->imagen != null) : ?>
@@ -44,16 +49,17 @@
                     <?php endif; ?>
                 </td>
                 <td>
-                    <a href="http://localhost/projects/master_PHP/marketplace/producto/ver&id=<?= $producto->id ?>"><?= $producto->nombre ?></a>
+                    <a href="http://localhost/projects/master_PHP/marketplace/productosControllers/ver/<?= $producto->id ?>"><?= $producto->nombre ?></a>
                 </td>
                 <td>
                     <?= $producto->precio ?>
                 </td>
                 <td>
-                    <?= $producto->unidades ?>
+                    <?= $elemento['unidades'] ?>
                 </td>
             </tr>
-        <?php endwhile; ?>
+
+        <?php endforeach; ?>
     </table>
 
 <?php endif; ?>

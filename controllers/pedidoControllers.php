@@ -56,8 +56,8 @@ class pedidoControllers
 
             $pedido = $pedido->getOneByUser();
 
-            $pedido_productos = new Pedido();
-            $productos = $pedido_productos->getProductosByPedido($pedido->id);
+            // $pedido_productos = new Pedido();
+            // $productos = $pedido_productos->getProductosByPedido($pedido->id);
         }
         require_once 'views/pedido/confirmado.php';
     }
@@ -70,7 +70,7 @@ class pedidoControllers
         // Sacar los pedidos del usuario
         $pedido->setUsuarios_id($usuario_id);
         $pedidos = $pedido->getAllByUser();
-        // var_dump($pedido);
+
         require_once 'views/pedido/misPedidos.php';
     }
 
@@ -86,10 +86,8 @@ class pedidoControllers
             $pedido = $pedido->getOne();
 
             // obtenemos productos
-            $pedido_productos = new pedido();
-            $producto = $pedido_productos->getProductosByPedido($id);
-
-            var_dump($producto);
+            $pedido_productos = new Pedido();
+            $productos = $pedido_productos->getProductosByPedido($id);
 
             require_once 'views/pedido/detalle.php';
         } else {
