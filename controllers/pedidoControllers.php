@@ -63,7 +63,7 @@ class pedidoControllers
     }
     public function misPedidos()
     {
-        // utils::isIdentity();
+        utils::isIdentity();
         $usuario_id = $_SESSION['identify']->id;
         $pedido = new Pedido();
 

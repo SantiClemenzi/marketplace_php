@@ -21,7 +21,7 @@ class utils
 
     public static function isIdentity()
     {
-        if (!isset($_SESSION['identity'])) {
+        if (!isset($_SESSION['identify'])) {
             header('Location: http://localhost/projects/master_PHP/marketplace/');
         } else {
             return true;
