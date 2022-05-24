@@ -12,7 +12,7 @@
 
         <tr>
             <td>
-                <a href="http://localhost/projects/master_PHP/marketplace/pedidoControllers/detalle/id=<?= $ped->id ?>"><?= $ped->id ?></a>
+                <a href="http://localhost/projects/master_PHP/marketplace/pedidoControllers/detalle/<?= $ped->id ?>"><?= $ped->id ?></a>
             </td>
             <td>
                 <?= $ped->coste ?> $

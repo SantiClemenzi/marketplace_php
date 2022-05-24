@@ -145,11 +145,6 @@ class pedido
 
             $insert = "INSERT INTO linea_pedidos VALUES(NULL, {$pedido_id}, {$producto->id}, {$elemento['unidades']})";
             $save = $this->db->query($insert);
-
-            // var_dump($producto);
-            // var_dump($insert);
-            // echo $this->db->error;
-            // die();
         }
 
         $result = false;
@@ -168,35 +163,31 @@ class pedido
 
         return $pedido->fetch_object();
     }
-    
-	public function getAllByUser()
-	{
-		$sql = "SELECT p.* FROM pedidos p "
-			. "WHERE p.usuarios_id = {$this->getUsuarios_id()} ORDER BY id DESC";
 
-		$pedido = $this->db->query($sql);
+    public function getAllByUser()
+    {
+        $sql = "SELECT p.* FROM pedidos p "
+            . "WHERE p.usuarios_id = {$this->getUsuarios_id()} ORDER BY id DESC";
 
-		return $pedido;
-	}
+        $pedido = $this->db->query($sql);
 
-	public function getProductosByPedido($id)
-	{
-		//		$sql = "SELECT * FROM productos WHERE id IN "
-		//				. "(SELECT producto_id FROM lineas_pedidos WHERE pedido_id={$id})";
+        return $pedido;
+    }
 
-		$sql = "SELECT pr.*, lp.unidades FROM productos pr "
-			. "INNER JOIN lineas_pedidos lp ON pr.id = lp.productos_id "
-			. "WHERE lp.pedidos_id={$id}";
+    public function getProductosByPedido($id)
+    {
+        $sql = "SELECT pr.*, lp.unidades FROM productos pr "
+            . "INNER JOIN lineas_pedidos lp ON pr.id = lp.productos_id "
+            . "WHERE lp.pedidos_id={$id}";
 
-		$productos = $this->db->query($sql);
+        $productos = $this->db->query($sql);
 
-		return $productos;
-	}
+        return $productos;
+    }
     // editar pedido
-    // public function getOne()
-    // {
-    //     $sql = "SELECT * FROM pedidos WHERE id = {$this->getId()}";
-    //     $producto = $this->db->query($sql);
-    //     return $producto->fetch_object();
-    // }
+    public function getOne()
+    {
+        $producto = $this->db->query("SELECT * FROM pedidos WHERE id = {$this->getId()}");
+        return $producto->fetch_object();
+    }
 }

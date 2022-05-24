@@ -73,4 +73,27 @@ class pedidoControllers
         // var_dump($pedido);
         require_once 'views/pedido/misPedidos.php';
     }
+
+    public function detalle()
+    {
+        utils::isIdentity();
+        if (isset($_GET['id'])) {
+            $id = $_GET['id'];
+
+            // sacar pedido
+            $pedido = new pedido();
+            $pedido->setId($id);
+            $pedido = $pedido->getOne();
+
+            // obtenemos productos
+            $pedido_productos = new pedido();
+            $producto = $pedido_productos->getProductosByPedido($id);
+
+            var_dump($producto);
+
+            require_once 'views/pedido/detalle.php';
+        } else {
+            header('Location: http://localhost/projects/master_PHP/marketplace/pedidoControllers/misPedidos');
+        }
+    }
 }
