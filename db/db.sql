@@ -13,8 +13,6 @@ imagen      varchar(255),
 CONSTRAINT pk_usuarios PRIMARY KEY(id),
 CONSTRAINT uq_email UNIQUE(email)
 )ENGINE=InnoDb;
--- insertamos valores
-INSERT INTO usuarios VALUES(NULL, 'juan', 'perez', 'juan@admin.com', 'Admin123', 'administrador','');
 
 -- creamos tabla
 CREATE TABLE categorias(
