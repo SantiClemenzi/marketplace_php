@@ -3,7 +3,7 @@
 <?php if (isset($pedido)) : ?>
     <?php if (isset($_SESSION['admin'])) : ?>
         <h3>Cambiar estado del pedido</h3>
-        <form action="http://localhost/projects/master_PHP/marketplace/pedido/estado" method="POST">
+        <form action="http://localhost/projects/master_PHP/marketplace/pedidoControllers/estado" method="POST">
             <input type="hidden" value="<?= $pedido->id ?>" name="pedido_id" />
             <select name="estado">
                 <option value="confirm" <?= $pedido->estado == "confirm" ? 'selected' : ''; ?>>Pendiente</option>

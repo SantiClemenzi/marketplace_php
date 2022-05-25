@@ -193,4 +193,17 @@ class pedido
         $producto = $this->db->query("SELECT * FROM pedidos WHERE id = {$this->getId()}");
         return $producto->fetch_object();
     }
+
+    public function edit()
+	{
+		$sql = "UPDATE pedidos SET estado='{$this->getEstado()}' WHERE id={$this->getId()};";
+
+		$save = $this->db->query($sql);
+
+		$result = false;
+		if ($save) {
+			$result = true;
+		}
+		return $result;
+	}
 }

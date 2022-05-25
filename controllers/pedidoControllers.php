@@ -105,6 +105,25 @@ class pedidoControllers
         $pedidos = $pedido->getAll();
 
         require_once 'views/pedido/misPedidos.php';
+    }
 
+    public function estado()
+    {
+        utils::isAdmin();
+        if (isset($_POST['pedido_id']) && isset($_POST['estado'])) {
+            // Recoger datos form
+            $id = $_POST['pedido_id'];
+            $estado = $_POST['estado'];
+
+            // Upadate del pedido
+            $pedido = new pedido();
+            $pedido->setId($id);
+            $pedido->setEstado($estado);
+            $pedido->edit();
+
+            header("Location: http://localhost/projects/master_PHP/marketplace/pedidoControllers/detalle/" . $id);
+        } else {
+            header("Location: http://localhost/projects/master_PHP/marketplace");
+        }
     }
 }
