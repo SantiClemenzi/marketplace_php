@@ -51,6 +51,13 @@ class carritoControllers
     }
     public function remove()
     {
+        if (isset($_GET['id'])) {
+            $index = $_GET['id'];
+            unset($_SESSION['carrito'][$index]);
+        }
+        header("Location:http://localhost/projects/master_PHP/marketplace/carritoControllers/index");
+
+        // var_dump($_SESSION['carrito'][1]);
     }
     public function delete()
     {
