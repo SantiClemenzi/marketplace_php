@@ -49,6 +49,7 @@ class carritoControllers
         }
         header('Location: http://localhost/projects/master_PHP/marketplace/carritoControllers/index');
     }
+
     public function remove()
     {
         if (isset($_GET['id'])) {
@@ -56,12 +57,32 @@ class carritoControllers
             unset($_SESSION['carrito'][$index]);
         }
         header("Location:http://localhost/projects/master_PHP/marketplace/carritoControllers/index");
-
-        // var_dump($_SESSION['carrito'][1]);
     }
+
     public function delete()
     {
         unset($_SESSION['carrito']);
         header('Location: http://localhost/projects/master_PHP/marketplace/carritoControllers/index');
+    }
+
+    public function up()
+    {
+        if (isset($_GET['id'])) {
+            $index = $_GET['id'];
+            $_SESSION['carrito'][$index]['unidades']++;
+        }
+        header("Location:http://localhost/projects/master_PHP/marketplace/carritoControllers/index");
+    }
+
+    public function down()
+    {
+        if (isset($_GET['id'])) {
+            $index = $_GET['id'];
+            $_SESSION['carrito'][$index]['unidades']--;
+            if ($_SESSION['carrito'][$index]['unidades'] == 0) {
+                unset($_SESSION['carrito'][$index]);
+            }
+        }
+        header("Location:http://localhost/projects/master_PHP/marketplace/carritoControllers/index");
     }
 }

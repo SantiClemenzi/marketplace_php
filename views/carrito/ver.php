@@ -26,7 +26,13 @@
                     </a>
                 </td>
                 <td><?= $producto->precio ?></td>
-                <td><?= $elemento['unidades'] ?></td>
+                <td>
+                    <?= $elemento['unidades'] ?>
+                    <div class="updown-unidades">
+                        <a href="http://localhost/projects/master_PHP/marketplace/carritoControllers/up/<?= $index ?>" class="button">+</a>
+                        <a href="http://localhost/projects/master_PHP/marketplace/carritoControllers/down/<?= $index ?>" class="button">-</a>
+                    </div>
+                </td>
                 <td><a href="http://localhost/projects/master_PHP/marketplace/carritoControllers/remove/<?= $index ?>" class="button button-carrito button-red">Eliminar <?= $producto->id ?></a></td>
             </tr>
         <?php endforeach; ?>
