@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -22,26 +23,17 @@
     </header>
 
     <!-- menu -->
+    <?php $categorias = utils::showCategorias(); ?>
     <nav id="menu">
         <ul>
             <li>
-                <a href="#">Inicio</a>
+                <a href="http://localhost/projects/master_PHP/marketplace">Inicio</a>
             </li>
-            <li>
-                <a href="#">Categoria 1</a>
-            </li>
-            <li>
-                <a href="#">Categoria 2</a>
-            </li>
-            <li>
-                <a href="#">Categoria 3</a>
-            </li>
-            <li>
-                <a href="#">Categoria 4</a>
-            </li>
-            <li>
-                <a href="#">Categoria 5</a>
-            </li>
+            <?php while ($cat = $categorias->fetch_object()) : ?>
+                <li>
+                    <a href="http://localhost/projects/master_PHP/marketplace/categoriaControllers/ver/<?= $cat->id ?>"><?= $cat->nombre ?></a>
+                </li>
+            <?php endwhile; ?>
         </ul>
     </nav>
     <section id="content">

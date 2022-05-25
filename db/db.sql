@@ -13,8 +13,6 @@ imagen      varchar(255),
 CONSTRAINT pk_usuarios PRIMARY KEY(id),
 CONSTRAINT uq_email UNIQUE(email)
 )ENGINE=InnoDb;
--- insertamos valores
-INSERT INTO usuarios VALUES(NULL, 'juan', 'perez', 'juan@admin.com', 'Admin123', 'administrador','');
 
 -- creamos tabla
 CREATE TABLE categorias(
@@ -62,6 +60,7 @@ CREATE TABLE linea_pedidos(
 id               int(255) auto_increment not null,
 pedidos_id       int(255) not null,
 productos_id     int(255) not null,
+unidades     int(255) not null,
 CONSTRAINT pk_linea_pedidos PRIMARY KEY(id),
 CONSTRAINT fk_linea_pedidos_pedidos FOREIGN KEY (pedidos_id) REFERENCES pedidos(id),
 CONSTRAINT fk_linea_pedidos_productos FOREIGN KEY (productos_id) REFERENCES productos(id)

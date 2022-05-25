@@ -49,4 +49,40 @@ class usuarioControllers
 
         header('Location: http://localhost/projects/master_PHP/marketplace/usuarioControllers/registro');
     }
+
+    public function login()
+    {
+        if (isset($_POST)) {
+            // identificar usuario
+            // consulta a la bd
+            $usuario1 = new usuario();
+            $usuario1->setEmail($_POST['email']);
+            $usuario1->setPassword($_POST['password']);
+            $identify = $usuario1->login();
+
+            if ($identify && is_object($identify)) {
+                $_SESSION['identify'] = $identify;
+
+                if ($identify->rol == 'admin') {
+                    $_SESSION['admin'] = true;
+                }
+            } else {
+                $_SESSION['error_login'] = 'identificacion fallida!!';
+            }
+
+            // cerrar sesion
+        }
+        header('Location: http://localhost/projects/master_PHP/marketplace');
+    }
+
+    public function logout()
+    {
+        if (isset($_SESSION['identify'])) {
+            unset($_SESSION['identify']);
+        }
+        if (isset($_SESSION['admin'])) {
+            unset($_SESSION['admin']);
+        }
+        header('Location: http://localhost/projects/master_PHP/marketplace');
+    }
 }

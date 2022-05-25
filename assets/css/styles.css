@@ -33,11 +33,12 @@ a:hover{
 table{
     text-align: center;
     width: 100%;
-    border-bottom: 1px solid #ccc;
+    border: 2px solid #ccc;
 }
 
 td{
     border-top: 1px solid #ccc;
+    border-right: 1px solid #ccc;
     padding: 2px;
 }
 

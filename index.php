@@ -1,15 +1,15 @@
 <?php
 session_start();
-
 require_once 'autoload.php';
-require_once 'views/layout/header.php';
-require_once 'views/layout/sidebar.php';
 require_once 'config/db.php';
 require_once 'config/parameters.php';
 require_once 'helpers/utils.php';
+require_once 'views/layout/header.php';
+require_once 'views/layout/sidebar.php';
 
 // mostramos mensaje Error
-function showErrors(){
+function showErrors()
+{
     $error = new error404Controllers();
     $error->index();
 }
@@ -19,27 +19,31 @@ function showErrors(){
 // ?controller=categoriaControllers&action=index
 
 
-if(isset($_GET['controller'])){
+if (isset($_GET['controller'])) {
     $nombre_controlador = $_GET['controller'];
-}elseif(!isset($_GET['controller'])){
+} elseif (!isset($_GET['controller'])) {
     $nombre_controlador = controller_default;
-}else{
+} else {
     showErrors();
     exit();
 }
 
-if(class_exists($nombre_controlador)){
+if (class_exists($nombre_controlador)) {
     $controlador = new $nombre_controlador();
     if (isset($_GET['action']) && method_exists($controlador, $_GET['action'])) {
         $action = $_GET['action'];
         $controlador->$action();
-    }elseif(!isset($_GET['action'])){
+    } elseif (isset($_GET['action']) && isset($_GET['id']) && method_exists($controlador, $_GET['action'])) {
+        $action = $_GET['action'];
+        $id = $_GET['id'];
+        $controlador->$action($id);
+    } elseif (!isset($_GET['action'])) {
         $default = action_default;
         $controlador->$default();
-    }else{
+    } else {
         showErrors();
     }
-}else{
+} else {
     showErrors();
 }
 
