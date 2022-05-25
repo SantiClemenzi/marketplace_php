@@ -44,7 +44,7 @@
                     <?php endif; ?>
                 </td>
                 <td>
-                    <a href="http://localhost/projects/master_PHP/marketplace/producto/ver/<?= $producto->id ?>"><?= $producto->nombre ?></a>
+                    <a href="http://localhost/projects/master_PHP/marketplace/productosControllers/ver/<?= $producto->id ?>"><?= $producto->nombre ?></a>
                 </td>
                 <td>
                     <?= $producto->precio ?>

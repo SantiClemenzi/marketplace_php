@@ -16,7 +16,7 @@
                    <?php if (isset($_SESSION['admin'])) : ?>
                        <li><a href="http://localhost/projects/master_PHP/marketplace/categoriaControllers/index">Gestionar categorias</a></li>
                        <li><a href="http://localhost/projects/master_PHP/marketplace/productosControllers/gestion">Gestionar productos</a></li>
-                       <li><a href="http://localhost/projects/master_PHP/marketplace/pedidoControllers/confirmado">Gestionar pedidos</a></li>
+                       <li><a href="http://localhost/projects/master_PHP/marketplace/pedidoControllers/gestion">Gestionar pedidos</a></li>
                    <?php endif; ?>
 
                    <?php if (isset($_SESSION['identify'])) : ?>

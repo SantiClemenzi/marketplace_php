@@ -94,4 +94,17 @@ class pedidoControllers
             header('Location: http://localhost/projects/master_PHP/marketplace/pedidoControllers/misPedidos');
         }
     }
+
+    public function gestion()
+    {
+        utils::isAdmin();
+
+        $gestion = true;
+        $pedido = new pedido();
+
+        $pedidos = $pedido->getAll();
+
+        require_once 'views/pedido/misPedidos.php';
+
+    }
 }
