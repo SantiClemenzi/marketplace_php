@@ -4,7 +4,7 @@
     <?php if (isset($_SESSION['admin'])) : ?>
         <h3>Cambiar estado del pedido</h3>
         <form action="http://localhost/projects/master_PHP/marketplace/pedido/estado" method="POST">
-            <input type="hidden" value="<?= $pedido->id ?>" name="pedidos_id" />
+            <input type="hidden" value="<?= $pedido->id ?>" name="pedido_id" />
             <select name="estado">
                 <option value="confirm" <?= $pedido->estado == "confirm" ? 'selected' : ''; ?>>Pendiente</option>
                 <option value="preparation" <?= $pedido->estado == "preparation" ? 'selected' : ''; ?>>En preparación</option>
@@ -22,12 +22,11 @@
     Direccion: <?= $pedido->direccion ?> <br /><br />
 
     <h3>Datos del pedido:</h3>
-    Estado: <?= utils::showStatus($pedido->estado) ?> <br />
+    Estado: <?= Utils::showStatus($pedido->estado) ?> <br />
     Número de pedido: <?= $pedido->id ?> <br />
     Total a pagar: <?= $pedido->coste ?> $ <br />
     Productos:
 
-    <!-- nueva prueba -->
     <table>
         <tr>
             <th>Imagen</th>
@@ -35,11 +34,7 @@
             <th>Precio</th>
             <th>Unidades</th>
         </tr>
-        <?php
-        foreach ($_SESSION['carrito'] as $indice => $elemento) :
-            $producto = $elemento['producto'];
-        ?>
-
+        <?php while ($producto = $productos->fetch_object()) : ?>
             <tr>
                 <td>
                     <?php if ($producto->imagen != null) : ?>
@@ -49,17 +44,16 @@
                     <?php endif; ?>
                 </td>
                 <td>
-                    <a href="http://localhost/projects/master_PHP/marketplace/productosControllers/ver/<?= $producto->id ?>"><?= $producto->nombre ?></a>
+                    <a href="http://localhost/projects/master_PHP/marketplace/producto/ver/<?= $producto->id ?>"><?= $producto->nombre ?></a>
                 </td>
                 <td>
                     <?= $producto->precio ?>
                 </td>
                 <td>
-                    <?= $elemento['unidades'] ?>
+                    <?= $producto->unidades ?>
                 </td>
             </tr>
-
-        <?php endforeach; ?>
+        <?php endwhile; ?>
     </table>
 
 <?php endif; ?>

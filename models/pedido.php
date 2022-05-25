@@ -176,15 +176,18 @@ class pedido
 
     public function getProductosByPedido($id)
     {
-        $sql = "SELECT pr.*, lp.unidades FROM productos pr "
-            . "INNER JOIN lineas_pedidos lp ON pr.id = lp.productos_id "
-            . "WHERE lp.pedidos_id={$id}";
+        // Para prevenir el SQL Injection, tenemos que escapar los datos introducidos.
+        $unsafe_variable = $id;
 
+        // Podemos escapar un valor integer de esta forma.
+        $safe_variable = (int) $unsafe_variable;
+
+        $sql = "SELECT pr.*, lp.unidades FROM productos pr INNER JOIN linea_pedidos lp ON pr.id = lp.productos_id WHERE lp.pedidos_id = $safe_variable;";
         $productos = $this->db->query($sql);
 
         return $productos;
     }
-    // editar pedido
+    // editar pedidos
     public function getOne()
     {
         $producto = $this->db->query("SELECT * FROM pedidos WHERE id = {$this->getId()}");
